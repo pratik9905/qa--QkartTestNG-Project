@@ -113,7 +113,8 @@ public class Checkout {
         try {
             // TODO: CRIO_TASK_MODULE_TEST_AUTOMATION - TEST CASE 07: MILESTONE 6
             WebElement insuffMessElement  = driver.findElement(By.xpath("//*[@id='notistack-snackbar']"));
-            if(insuffMessElement.isDisplayed()){
+            System.out.println(insuffMessElement.getText());
+            if(insuffMessElement.getText().contains("You do not have enough balance in your wallet for this purchase")){
                 System.out.println("insufficient is displayed");
                 return true;
             }
