@@ -63,11 +63,6 @@ public class Register {
         register_now_button.click();
         // Wait for registration to complete
         Thread.sleep(3000);
-       
-            // WebDriverWait wait = new WebDriverWait(driver, 30);
-            // wait.until(ExpectedConditions.urlToBe("https://crio-qkart-frontend-qa.vercel.app/login"));
-    
-       
 
 
         this.lastGeneratedUsername = test_data_username;

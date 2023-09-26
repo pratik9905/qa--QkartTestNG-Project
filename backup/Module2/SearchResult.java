@@ -7,6 +7,9 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.interactions.internal.MouseAction.Button;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class SearchResult {
     WebElement parentElement;
@@ -39,7 +42,7 @@ public class SearchResult {
             // Find the link of size chart in the parentElement and click on it
             WebElement sizeChartLink = parentElement.findElement(By.tagName("Button"));
             sizeChartLink.click();
-            // Thread.sleep(2000);
+            Thread.sleep(2000);
             return true;
         } catch (Exception e) {
             System.out.println("Exception while opening Size chart: " + e.getMessage());
@@ -52,13 +55,13 @@ public class SearchResult {
      */
     public Boolean closeSizeChart(WebDriver driver) {
         try {
-            // Thread.sleep(2000);
+            Thread.sleep(2000);
             Actions action = new Actions(driver);
 
             // Clicking on "ESC" key closes the size chart modal
             action.sendKeys(Keys.ESCAPE);
             action.perform();
-            // Thread.sleep(2000);
+            Thread.sleep(2000);
             return true;
         } catch (Exception e) {
             System.out.println("Exception while closing the size chart: " + e.getMessage());
@@ -72,7 +75,7 @@ public class SearchResult {
     public Boolean verifySizeChartExists() {
         Boolean status = false;
         try {
-            // Thread.sleep(2000);
+            Thread.sleep(2000);
             // TODO: CRIO_TASK_MODULE_TEST_AUTOMATION - TEST CASE 04: MILESTONE 2
             /*
              * Check if the size chart element exists. If it exists, check if the text of
@@ -83,7 +86,7 @@ public class SearchResult {
             System.out.println(chartElement.getText());
             status=chartElement.getText().equals("SIZE CHART");
             System.out.println(status);
-            // Thread.sleep(2000);
+            Thread.sleep(2000);
             return status;
         } catch (Exception e) {
             e.printStackTrace();
@@ -100,7 +103,7 @@ public class SearchResult {
         Boolean status = true;
         
         try {
-            // Thread.sleep(2000);
+            Thread.sleep(2000);
             // TODO: CRIO_TASK_MODULE_TEST_AUTOMATION - TEST CASE 04: MILESTONE 2
             /*
              * Locate the table element when the size chart modal is open
@@ -127,7 +130,7 @@ public class SearchResult {
                 }
 
              }
-            //  Thread.sleep(2000);
+             Thread.sleep(2000);
 
              List<WebElement> tableBodyElements = tableElement.findElement(By.tagName("tbody")).findElements(By.tagName("tr"));
 

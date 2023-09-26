@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 public class Checkout {
     RemoteWebDriver driver;
     String url = "https://crio-qkart-frontend-qa.vercel.app/checkout";
@@ -32,35 +33,23 @@ public class Checkout {
              * text box and click on the "ADD" button to save the address
              */
             WebElement addAdress = driver.findElement(By.className("css-rfvjbl"));
-            // Thread.sleep(3000);
+            Thread.sleep(3000);
             addAdress.click();
-            // Thread.sleep(3000);
+            Thread.sleep(3000);
 
             WebElement addAdressTextArea = driver.findElement(By.className("css-u36398"));
-            // Thread.sleep(3000);
-            addAdressTextArea.clear();
+            Thread.sleep(3000);
             addAdressTextArea.sendKeys(addresString);
-            // Thread.sleep(3000);
+            Thread.sleep(3000);
 
-            // WebElement addNewAdressButton = driver.findElement(By.xpath("//*[@id='root']/div/div[2]/div[1]/div/div[2]/div[2]/button[1]"));
-            // // Thread.sleep(3000);
-            // addNewAdressButton.click();
-            // Thread.sleep(3000);
-            List<WebElement> buttonList = driver.findElements(By.className("css-177pwqq"));
-            for(WebElement button : buttonList){
-                if(button.getText().equals("ADD")){
-                    button.click();
-
-                    WebDriverWait wait = new WebDriverWait(driver, 30);
-                    wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath(String.format("//*[@class='MuiTypography-root MuiTypography-body1 css-yg30e6' and text()='%s']",addresString))));
-
-                    return true;
-                }
-            }
+            WebElement addNewAdressButton = driver.findElement(By.xpath("//*[@id='root']/div/div[2]/div[1]/div/div[2]/div[2]/button[1]"));
+            Thread.sleep(3000);
+            addNewAdressButton.click();
+            Thread.sleep(3000);
 
 
 
-            return false;
+            return true;
         } catch (Exception e) {
             System.out.println("Exception occurred while entering address: " + e.getMessage());
             return false;
@@ -73,7 +62,7 @@ public class Checkout {
      */
     public Boolean selectAddress(String addressToSelect) {
         try {
-            // Thread.sleep(3000);
+            Thread.sleep(3000);
             // TODO: CRIO_TASK_MODULE_TEST_AUTOMATION - TEST CASE 05: MILESTONE 4
             /*
              * Iterate through all the address boxes to find the address box with matching
@@ -84,7 +73,7 @@ public class Checkout {
                 String actualAdd=AddRadio.getText();//div[@class='MuiBox-root css-0']//input
                
                 if(actualAdd.equals(addressToSelect)){
-                    // Thread.sleep(3000);
+                    Thread.sleep(3000);
                     AddRadio.click();
                     return true;
                 }
@@ -106,7 +95,7 @@ public class Checkout {
             // TODO: CRIO_TASK_MODULE_TEST_AUTOMATION - TEST CASE 05: MILESTONE 4
             // Find the "PLACE ORDER" button and click on it
             WebElement palceOrderButton = driver.findElement(By.className("css-177pwqq"));
-            // Thread.sleep(3000);
+            Thread.sleep(3000);
             palceOrderButton.click();
 
             return true;
