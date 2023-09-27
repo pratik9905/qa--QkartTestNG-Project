@@ -543,6 +543,7 @@ public class QkartSanity {
         homePage.navigateToHome();
         status = homePage.searchForProduct("Yonex");
         homePage.addProductToCart("YONEX Smash Badminton Racquet");
+        String parentWindow = driver.getWindowHandle();
         // Thread.sleep(3000);
 
         driver.switchTo().newWindow(WindowType.TAB);
@@ -555,6 +556,8 @@ public class QkartSanity {
         if(!status){
             return false;
         }
+        driver.close();
+        driver.switchTo().window(parentWindow);
        
         logStatus("End TestCase", "TestCase 8: Ensure that product added in card and shown in another tab", status ? "PASS" : "FAIL");
         
@@ -722,6 +725,8 @@ public class QkartSanity {
         // Check if placing order redirected to the Thansk page
         status = driver.getCurrentUrl().endsWith("/thanks");
 
+        logStatus("Test Step", "Test Case 11: Validate that order is placed", status?"PASS":"FAIL");
+
         List<WebElement> Advertisments = driver.findElements(By.xpath("//iframe"));
         status=Advertisments.size()==3;
 
@@ -730,22 +735,27 @@ public class QkartSanity {
         WebElement Advertisment1 = driver.findElement(By.xpath("//*[@id='root']/div/div[2]/div/iframe[1]"));
 
         driver.switchTo().frame(Advertisment1);
+        
         driver.findElement(By.xpath("//*[@id='continue-btn']")).click();
+        Thread.sleep(2000);
 
         driver.switchTo().parentFrame();
+        Thread.sleep(2000);
         status=!driver.getCurrentUrl().equals(currentUrl);
 
         logStatus("Step", "In Advertisement1 Button is Clickable", status?"PASS":"FAIL");
 
         driver.get(currentUrl);
-        // Thread.sleep(3000);
+
+        Thread.sleep(2000);
 
         WebElement Advertisment2 = driver.findElement(By.xpath("//*[@id='root']/div/div[2]/div/iframe[2]"));
 
         driver.switchTo().frame(Advertisment2);
         driver.findElement(By.xpath("//*[@id='continue-btn']")).click();
-
+        Thread.sleep(2000);
         driver.switchTo().parentFrame();
+        Thread.sleep(2000);
         status=!driver.getCurrentUrl().equals(currentUrl);
 
         logStatus("Step", "In Advertisement2 Button is Clickable", status?"PASS":"FAIL");
@@ -767,18 +777,18 @@ public class QkartSanity {
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         try {
-            // Execute Test Case 1
+
+            // Execute Test Case 01
             totalTests += 1;
-            takeScreenshot(driver, "StartTestCase", "TestCase01");
+            takeScreenshot(driver, "StartTestCase", "TestCase08");
+            
             status = TestCase01(driver);
-            takeScreenshot(driver, "EndTestCase", "TestCase01");
+            takeScreenshot(driver, "EndTestCase", "TestCase08");
             if (status) {
-                passedTests += 1;
+            passedTests += 1;
             }
 
-            System.out.println("");
-
-            // Execute Test Case 2
+            // // Execute Test Case 2
             totalTests += 1;
             takeScreenshot(driver, "StartTestCase", "TestCase02");
             
@@ -789,6 +799,7 @@ public class QkartSanity {
             }
 
             System.out.println("");
+
             // Execute Test Case 3
             totalTests += 1;
             takeScreenshot(driver, "StartTestCase", "TestCase03");
@@ -846,59 +857,49 @@ public class QkartSanity {
             if (status) {
             passedTests += 1;
             }
-
             System.out.println("");
 
-
-            // Execute Test Case 8
+            // Execute Test Case 08
             totalTests += 1;
-            takeScreenshot(driver, "StartTestCase", "TestCase08");
-            
-            status = TestCase11(driver);
-            takeScreenshot(driver, "EndTestCase", "TestCase08");
+            takeScreenshot(driver, "StartTestCase", "TestCase11");
+            status = TestCase08(driver);
+            takeScreenshot(driver, "EndTestCase", "TestCase11");
             if (status) {
             passedTests += 1;
             }
-
             System.out.println("");
 
-            // Execute Test Case 9
+            // // Execute Test Case 9
             totalTests += 1;
-            
             takeScreenshot(driver, "StartTestCase", "TestCase09");
-            
             status = TestCase09(driver);
             takeScreenshot(driver, "EndTestCase", "TestCase09");
             if (status) {
             passedTests += 1;
             }
-
             System.out.println("");
 
-            // Execute Test Case 10
+            // // Execute Test Case 10
             totalTests += 1;
             takeScreenshot(driver, "StartTestCase", "TestCase10");
-            
             status = TestCase10(driver);
             takeScreenshot(driver, "EndTestCase", "TestCase10");
             if (status) {
             passedTests += 1;
             }
-
             System.out.println("");
 
             // Execute Test Case 11
             totalTests += 1;
-            takeScreenshot(driver, "StartTestCase", "TestCase11");
-            
-            status = TestCase08(driver);
-            takeScreenshot(driver, "EndTestCase", "TestCase11");
-            
+            takeScreenshot(driver, "StartTestCase", "TestCase01");
+            status = TestCase11(driver);
+            takeScreenshot(driver, "EndTestCase", "TestCase01");
             if (status) {
-            passedTests += 1;
+                passedTests += 1;
             }
 
             System.out.println("");
+
         } catch (Exception e) {
             throw e;
         } finally {
