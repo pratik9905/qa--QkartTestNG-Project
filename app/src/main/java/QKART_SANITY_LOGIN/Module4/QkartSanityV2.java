@@ -175,10 +175,10 @@ public class QkartSanityV2 {
         }
 
         logStatus("Step Success", "Successfully validated the search results ", "PASS");
-
+Thread.sleep(2000);
         // Search for product
         status = homePage.searchForProduct("Gesundheit");
-        if (status) {
+        if (!status) {
             logStatus("TestCase 3", "Test Case Failure. Invalid keyword returned results", "FAIL");
             return false;
         }
