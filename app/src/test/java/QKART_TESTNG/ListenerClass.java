@@ -12,7 +12,8 @@ import org.testng.ITestResult;
 
 public class ListenerClass implements ITestListener{
     
-     RemoteWebDriver driver;
+     RemoteWebDriver driver = QKART_Tests.driver;
+     
 
     public static void takeScreenshot(WebDriver driver, String screenshotType, String description) {
         try {
