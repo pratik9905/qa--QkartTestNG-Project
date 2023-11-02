@@ -56,7 +56,7 @@ public class QKART_Tests {
          public void TestCase01(String Reg_userName, String Reg_Password) throws InterruptedException {
         Boolean status;
          logStatus("Start TestCase", "Test Case 1: Verify User Registration", "DONE");
-        //  takeScreenshot(driver, "StartTestCase", "TestCase1");
+         takeScreenshot(driver, "StartTestCase", "TestCase1");
 
         // Visit the Registration page and register a new user
         Register registration = new Register(driver);
@@ -80,7 +80,7 @@ public class QKART_Tests {
 
          logStatus("End TestCase", "Test Case 1: Verify user Registration : ", status
          ? "PASS" : "FAIL");
-        //  takeScreenshot(driver, "EndTestCase", "TestCase1");
+         takeScreenshot(driver, "EndTestCase", "TestCase1");
     }
 
      /*
@@ -493,7 +493,7 @@ Thread.sleep(2000);
         logStatus("Start TestCase",
                 "Test Case 8: Verify that product added to cart is available when a new tab is opened",
                 "DONE");
-        // takeScreenshot(driver, "StartTestCase", "TestCase09");
+        takeScreenshot(driver, "StartTestCase", "TestCase09");
 
         Register registration = new Register(driver);
         registration.navigateToRegisterPage();
@@ -546,7 +546,7 @@ Thread.sleep(2000);
         logStatus("End TestCase",
         "Test Case 8: Verify that product added to cart is available when a new tab is opened",
         status ? "PASS" : "FAIL");
-        // takeScreenshot(driver, "EndTestCase", "TestCase08");
+        takeScreenshot(driver, "EndTestCase", "TestCase08");
 
         // return status;
     }
@@ -558,7 +558,7 @@ Thread.sleep(2000);
         logStatus("Start TestCase",
                 "Test Case 09: Verify that the Privacy Policy, About Us are displayed correctly ",
                 "DONE");
-        // takeScreenshot(driver, "StartTestCase", "TestCase09");
+        takeScreenshot(driver, "StartTestCase", "TestCase09");
 
         Register registration = new Register(driver);
         registration.navigateToRegisterPage();
@@ -637,7 +637,7 @@ Thread.sleep(2000);
         logStatus("End TestCase",
         "Test Case 9: Verify that the Privacy Policy, About Us are displayed correctly ",
         "PASS");
-        // takeScreenshot(driver, "EndTestCase", "TestCase9");
+        takeScreenshot(driver, "EndTestCase", "TestCase9");
 
         // return status;
     }
@@ -652,7 +652,7 @@ Thread.sleep(2000);
         logStatus("Start TestCase",
                 "Test Case 10: Verify that contact us option is working correctly ",
                 "DONE");
-        // takeScreenshot(driver, "StartTestCase", "TestCase10");
+        takeScreenshot(driver, "StartTestCase", "TestCase10");
 
         Home homePage = new Home(driver);
         homePage.navigateToHome();
@@ -678,7 +678,7 @@ Thread.sleep(2000);
                 "Test Case 10: Verify that contact us option is working correctly ",
                 "PASS");
 
-        // takeScreenshot(driver, "EndTestCase", "TestCase10");
+        takeScreenshot(driver, "EndTestCase", "TestCase10");
 
         // return true;
     }
@@ -690,7 +690,7 @@ Thread.sleep(2000);
         logStatus("Start TestCase",
                 "Test Case 11: Ensure that the links on the QKART advertisement are clickable",
                 "DONE");
-        // takeScreenshot(driver, "StartTestCase", "TestCase11");
+        takeScreenshot(driver, "StartTestCase", "TestCase11");
 
         Register registration = new Register(driver);
         registration.navigateToRegisterPage();

@@ -12,7 +12,7 @@ import org.testng.ITestResult;
 
 public class ListenerClass implements ITestListener{
     
-    static RemoteWebDriver driver;
+     RemoteWebDriver driver;
 
     public static void takeScreenshot(WebDriver driver, String screenshotType, String description) {
         try {
@@ -34,17 +34,26 @@ public class ListenerClass implements ITestListener{
 @Override
 public void onStart(ITestContext context) {
    
-    takeScreenshot(driver, "StartTestCase", context.getName());
+    System.out.println("onStart method Started");
 }
 
+@Override
+public void onTestStart(ITestResult result) {
+    takeScreenshot(driver, "StartTestCase", result.getName());
+}
 @Override
 public void onTestFailure(ITestResult result) {
     takeScreenshot(driver, "TestCaseFailure", result.getName());
 }
 
 @Override
+public void onTestSuccess(ITestResult result) {
+    takeScreenshot(driver, "TestCaseSuccess", result.getName());
+}
+
+@Override
 public void onFinish(ITestContext context) {
-    takeScreenshot(driver, "EndTestCase", context.getName());
+    System.out.println("onFinish method Started");
 }
 
 }
